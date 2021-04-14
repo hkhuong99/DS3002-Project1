@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-# pylint: disable=no-name-in-module
-# pylint: disable=no-self-argument
 
 import os
 import requests
@@ -9,6 +7,7 @@ from pydantic import BaseModel
 from fastapi import FastAPI, HTTPException
 
 app = FastAPI()
+
 #Welcome page
 @app.get("/")  # zone apex
 def read_root():
@@ -18,7 +17,7 @@ def read_root():
 #converts temperature from Celsius to Fahrenheit
 @app.get("/convert_c_to_f/{celsius}")
 def convert_temp(celsius: int,):
-    if (type(celsius) == str): #makes sure the user entered a number
+    if (type(celsius) != int): #makes sure the user entered a number
         raise HTTPException(status_code=400, detail="Please enter a number")
     return {celsius*9/5 +32}
 
@@ -58,4 +57,3 @@ def return_areacodes(zipcode: str):
     response = requests.get(url)
     areacodes = response.json()["area_codes"]
     return areacodes
-
