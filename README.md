@@ -19,3 +19,5 @@ If you're trying to find the distance between two locations, please enter the zi
 If you're trying to find out the area codes for a specific area, please enter the zipcode as a 5 digit number. 
   You do this using the "areacodes" endpoint.
   This is done by using a zipcode API and getting the area code associated with a zipcode.
+  
+Zipcode API: https://www.zipcodeapi.com/API  
